@@ -7,3 +7,6 @@
 
 # Go build artifacts
 /backend/backend
+
+# Docker volumes
+postgres_data
