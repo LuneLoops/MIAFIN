@@ -1,0 +1,366 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MIAFIN - Soluciones Financieras</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#eefff3",
+                        "inverse-surface": "#303030",
+                        "secondary-container": "#76adfd",
+                        tertiary: "#486054",
+                        "on-secondary-container": "#00407a",
+                        "on-surface": "#1b1c1c",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#082016",
+                        primary: "#006933",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-highest": "#e4e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        background: "#fbf9f8",
+                        secondary: "#1a5fa9",
+                        error: "#ba1a1a",
+                        "tertiary-fixed": "#cee9d9",
+                        "tertiary-container": "#60796c",
+                        "primary-container": "#008542",
+                        "surface-tint": "#006d35",
+                        "on-secondary-fixed": "#001c3b",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#71dc8e",
+                        "on-background": "#1b1c1c",
+                        surface: "#fbf9f8",
+                        "outline-variant": "#bdcabc",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#00210c",
+                        "tertiary-fixed-dim": "#b2cdbd",
+                        "on-tertiary-fixed-variant": "#344c40",
+                        "surface-bright": "#fbf9f8",
+                        "secondary-fixed-dim": "#a6c8ff",
+                        "inverse-on-surface": "#f3f0f0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "inverse-primary": "#71dc8e",
+                        "on-secondary-fixed-variant": "#004787",
+                        "secondary-fixed": "#d5e3ff",
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3e4a3f",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#8df9a8",
+                        "on-primary-fixed-variant": "#005226",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-container": "#eeffec",
+                        outline: "#6e7a6e",
+                        "surface-container": "#f0eded"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    fontFamily: {
+                        headline: ["Manrope"],
+                        body: ["Inter"],
+                        label: ["Inter"],
+                        display: "Manrope"
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-credit-tab {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none h-20">
+<div class="flex justify-between items-center px-8 h-full max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-black tracking-tight font-headline" style="">
+<span class="text-primary" style="">MI</span><span class="text-secondary" style="">AFIN</span>
+</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-emerald-700 dark:text-emerald-400 font-bold border-b-2 border-emerald-600 font-headline text-lg" href="#" style="">Soluciones</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="#" style="">Crédito</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="#" style="">Patrimonio</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="#" style="">Nosotros</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-emerald-700 font-bold px-4 py-2" style=""><br></button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="pt-32 pb-20 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<h1 class="text-5xl md:text-7xl font-extrabold font-headline leading-[1.1] tracking-tight" style="">
+                Finanzas diseñadas <br>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-container" style="">para tu crecimiento.</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl font-body leading-relaxed" style="">
+                En MIAFIN, humanizamos el acceso al crédito en Bolivia. Soluciones financieras transparentes y ágiles que se adaptan a tu realidad personal o comunitaria.
+            </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-primary/20 hover:scale-105 active:opacity-80 transition-all" style="">
+                    Solicitar mi crédito
+                </button>
+<button class="bg-surface-container-highest text-secondary px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container-high transition-all" style="">
+                    Ver beneficios
+                </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
+<img alt="Mujer emprendedora boliviana en un mercado local, representando confianza y crecimiento económico" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGgKaRhI5g-JqzoNVsePkahtBZShWckl9g4BNh8Rfl6AtKcCXCCztwugxooainpVXCxxz8zmSxNo2fAa2aPtdHNCI9Q636hNUYEPHOdNO2W_xx_GR9E8DWLcyjaShWB23bxEFxHDNH8yLpNYsFuusPvty0IqnnDujADn5fKfao4IdLr6wC_866vaM4hhSTEqcoOVzXVtPsCwfzK4FGmblUGtP2y_SFs7SXLxYcclfV93WVl8nUYmuNxD1bMbo5QGLtg4Lm29D8Rmo" style="">
+</div>
+</div>
+</header>
+<!-- Dynamic Credit Selector Section -->
+<section class="bg-surface-container-low py-24 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold font-headline mb-4" style="">Elige tu camino financiero</h2>
+<p class="text-on-surface-variant" style="">Soluciones flexibles para cada necesidad, desde 5,000 Bs hasta 10,000 Bs.</p>
+</div>
+<!-- Selector Toggle -->
+<div class="max-w-3xl mx-auto mb-16 p-2 bg-surface-container-highest rounded-full flex gap-2">
+<button class="flex-1 py-4 rounded-full font-bold text-lg transition-all active-credit-tab text-primary" style="">
+                    Créditos Comunales
+                </button>
+<button class="flex-1 py-4 rounded-full font-bold text-lg transition-all text-on-surface-variant hover:bg-surface-container-high" style="">
+                    Créditos Individuales
+                </button>
+</div>
+<!-- Content Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Main Feature Card -->
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-[2rem] shadow-sm flex flex-col justify-between">
+<div>
+<span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold mb-6" style="">MÁS POPULAR</span>
+<h3 class="text-4xl font-extrabold font-headline mb-6 text-on-surface" style="">Impulsa tu comunidad</h3>
+<p class="text-lg text-on-surface-variant mb-8 leading-relaxed" style="">
+                            Diseñado para grupos que buscan crecer juntos. Con el respaldo de tu comunidad, accede a montos de 5,000 Bs a 10,000 Bs con plazos flexibles que permiten el desarrollo de tu emprendimiento.
+                        </p>
+</div>
+<div class="grid grid-cols-3 gap-4 lg:gap-8">
+<div>
+<div class="text-3xl font-black text-primary mb-1" style="">35%</div>
+<div class="text-sm font-bold text-on-surface-variant" style="">Tasa anual fija</div>
+</div>
+<div>
+<div class="text-3xl font-black text-primary mb-1" style="">0%</div>
+<div class="text-sm font-bold text-on-surface-variant" style="">Comisión apertura</div>
+</div>
+<div>
+<div class="text-3xl font-black text-primary mb-1" style="">10.000 Bs</div>
+<div class="text-sm font-bold text-on-surface-variant" style="">Máximo</div>
+</div>
+</div>
+</div>
+<!-- Testimonial Side Card -->
+<div class="bg-secondary text-white p-10 rounded-[2rem] shadow-xl flex flex-col justify-center relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl opacity-50 mb-6" style="">format_quote</span>
+<p class="text-xl italic font-body mb-8" style="">"Gracias al crédito comunal de MIAFIN, pudimos mejorar nuestra producción. El proceso fue transparente y muy humano."</p>
+<div>
+<p class="font-bold" style="">Doña Juana M.</p>
+<p class="text-sm text-secondary-fixed opacity-80" style="">Emprendedora Local</p>
+</div>
+</div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Requirements & Location Section -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row gap-16 items-start">
+<div class="flex-1">
+<h2 class="text-4xl font-extrabold font-headline mb-8" style="">Requisitos simples para <br><span class="text-primary" style="">metas grandes</span></h2>
+<p class="text-on-surface-variant mb-10 text-lg" style="">No complicamos lo que debería ser sencillo. Solo necesitamos lo esencial para empezar a trabajar juntos.</p>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" style="">badge</span>
+</div>
+<div>
+<h4 class="font-bold text-lg" style="">Identificación Oficial</h4>
+<p class="text-on-surface-variant" style="">Cédula de Identidad</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" style="">home_pin</span>
+</div>
+<div>
+<h4 class="font-bold text-lg" style="">Comprobante de Domicilio</h4>
+<p class="text-on-surface-variant" style="">Factura de luz o agua no mayor a 3 meses.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" style="">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-lg" style="">Monto a Solicitar</h4>
+<p class="text-on-surface-variant" style="">Desde 5,000 Bs hasta un máximo de 10,000 Bs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full">
+<div class="bg-surface-container p-2 rounded-[2.5rem]">
+<div class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/20 overflow-hidden">
+<h3 class="text-2xl font-bold mb-4" style="">Inicia tu solicitud hoy</h3>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" style="">call</span>
+<p class="text-lg font-bold text-primary" style="">WhatsApp: 73737373</p>
+</div>
+<div class="relative h-64 w-full rounded-2xl overflow-hidden mb-4 border border-outline-variant/30">
+<img alt="Mapa de ubicación de MIAFIN en Cochabamba" class="w-full h-full object-cover" src="https://i.imgur.com/rpSBL7w.png" style="">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-sm" style="">account_balance</span>
+</div>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-bold text-on-surface" style="">Oficina Central</p>
+<p class="text-xs text-on-surface-variant" style="">Ladislao Cabrera y Esteban Arce, Edificio Sanvale 2</p>
+<p class="text-xs text-on-surface-variant" style="">Cochabamba, Bolivia</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Schedule Section -->
+<section class="py-12 px-8 max-w-7xl mx-auto border-t border-outline-variant/20">
+<div class="bg-surface-container-low p-10 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl" style="">schedule</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold font-headline mb-1" style="">Horarios de atención</h3>
+<p class="text-on-surface-variant" style="">Estamos para atenderte en persona en nuestras oficinas.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-8 py-6 rounded-2xl border border-outline-variant/20 shadow-sm">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center gap-12">
+<span class="font-bold text-on-surface" style="">Lunes a Viernes</span>
+<span class="text-primary font-bold" style="">9:00 AM - 5:00 PM</span>
+</div>
+<div class="flex justify-between items-center gap-12 opacity-50">
+<span class="font-medium text-on-surface" style="">Sábados y Domingos</span>
+<span class="font-medium" style="">Cerrado</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="bg-surface py-24 px-8">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-4xl font-extrabold font-headline text-center mb-16" style="">Preguntas frecuentes</h2>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-lg" style="">¿Cuánto tiempo tarda la aprobación?</h4>
+<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-lg" style="">¿Cuáles son las tasas de interés?</h4>
+<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-lg" style="">¿Cuál es el monto mínimo y máximo?</h4>
+<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+</div>
+</div>
+<!-- New Question 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-lg" style="">¿Qué es un crédito comunal?</h4>
+<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+</div>
+</div>
+<!-- New Question 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-lg" style="">¿Puedo renovar mi crédito después de pagarlo?</h4>
+<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-neutral-100 dark:bg-neutral-950 w-full py-12 px-8 border-t border-neutral-200">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline font-bold text-emerald-900 text-2xl mb-4 block" style="">MIAFIN</span>
+<p class="text-neutral-500 text-sm leading-relaxed mb-6 font-body" style="">
+                    Impulsando sueños bolivianos, construyendo realidades financieras para todos con una tasa del 35%.
+                </p>
+</div>
+<div>
+<h5 class="font-bold text-emerald-800 dark:text-emerald-500 mb-4" style="">Empresa</h5>
+<ul class="space-y-2">
+<li class="" style=""><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#" style="">Sobre nosotros</a></li>
+<li class="" style=""><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#" style="">Contacto</a></li>
+<li class="" style=""><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#" style="">Soporte</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-emerald-800 dark:text-emerald-500 mb-4" style="">Legal</h5>
+<ul class="space-y-2">
+<li class="" style=""><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#" style="">Términos</a></li>
+<li class="" style=""><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#" style="">Privacidad</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-emerald-800 dark:text-emerald-500 mb-4" style="">Síguenos</h5>
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-neutral-200 rounded-full flex items-center justify-center cursor-pointer hover:bg-emerald-100 transition-colors">
+<span class="material-symbols-outlined text-emerald-800" style="">share</span>
+</div>
+<div class="w-10 h-10 bg-neutral-200 rounded-full flex items-center justify-center cursor-pointer hover:bg-emerald-100 transition-colors">
+<span class="material-symbols-outlined text-emerald-800" style="">public</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-12 border-t border-neutral-200 mt-8 text-center md:text-left">
+<p class="text-neutral-500 font-body text-sm" style="">
+                © 2025 MIAFIN Bolivia. Todos los derechos reservados. Horarios: Lun-Vie 9AM-5PM.
+            </p>
+</div>
+</footer>
+<!-- WhatsApp Floating CTA -->
+<a class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60]" href="#" style="">
+<svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.548 0 10.058-4.51 10.061-10.062.002-2.69-1.047-5.216-2.955-7.127s-4.439-2.956-7.127-2.957c-5.549 0-10.06 4.511-10.063 10.063-.001 2.032.547 3.513 1.55 5.146l-1.02 3.723 3.835-1.005zm10.948-7.532c-.301-.151-1.781-.878-2.057-.978-.275-.1-.476-.151-.675.151-.199.301-.771.978-.945 1.177-.175.199-.349.226-.65.075-.301-.151-1.272-.469-2.423-1.496-.895-.798-1.5-1.783-1.675-2.084-.175-.301-.019-.463.132-.613.135-.134.301-.351.451-.526.15-.175.201-.301.301-.501.1-.199.05-.376-.025-.526-.075-.151-.675-1.628-.925-2.229-.244-.588-.491-.508-.675-.517-.175-.008-.376-.01-.576-.01-.2 0-.526.075-.802.376-.275.301-1.053 1.028-1.053 2.507s1.077 2.908 1.228 3.109c.15.201 2.12 3.237 5.135 4.537.718.309 1.278.494 1.714.633.721.23 1.377.198 1.896.121.578-.085 1.781-.727 2.031-1.429.25-.702.25-1.303.175-1.429-.075-.126-.275-.201-.576-.352z"></path>
+</svg>
+</a>
+</body></html>
