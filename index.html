@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="light" lang="es"><head>
+<!DOCTYPE html><html class="light" lang="es" style="scroll-behavior: smooth"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>MIAFIN - Soluciones Financieras</title>
@@ -83,6 +83,29 @@
             background-color: #ffffff;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
+        .credit-content {
+            display: none !important;
+        }
+        .credit-content.active {
+            display: grid !important;
+        }
+        .faq-answer {
+            display: block;
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 100px;
+            padding-top: 1rem;
+        }
+        .faq-item .material-symbols-outlined {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.open .material-symbols-outlined {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="bg-surface font-body text-on-surface">
@@ -90,15 +113,14 @@
 <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none h-20">
 <div class="flex justify-between items-center px-8 h-full max-w-7xl mx-auto w-full">
 <div class="flex items-center gap-2">
-<span class="text-2xl font-black tracking-tight font-headline" style="">
-<span class="text-primary" style="">MI</span><span class="text-secondary" style="">AFIN</span>
-</span>
+<a href="./">
+<img src="https://i.imgur.com/xI33Ubz.png" alt="MIAFIN" class="h-12">
+</a>
 </div>
 <div class="hidden md:flex items-center gap-8">
-<a class="text-emerald-700 dark:text-emerald-400 font-bold border-b-2 border-emerald-600 font-headline text-lg" href="#" style="">Soluciones</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="#" style="">Crédito</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="#" style="">Patrimonio</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="#" style="">Nosotros</a>
+<a class="text-emerald-700 dark:text-emerald-400 font-bold border-b-2 border-emerald-600 font-headline text-lg" href="./" style="">Inicio</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="./simulador.html" style="">Simulador de cuotas</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="./nosotros.html" style="">Nosotros</a>
 </div>
 <div class="flex items-center gap-4">
 <button class="text-emerald-700 font-bold px-4 py-2" style=""><br></button>
@@ -106,8 +128,8 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<header class="pt-32 pb-20 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<div class="lg:col-span-7 space-y-8">
+<header class="pt-20 pb-0 px-4 lg:px-0 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+<div class="lg:col-span-7 space-y-4">
 <h1 class="text-5xl md:text-7xl font-extrabold font-headline leading-[1.1] tracking-tight" style="">
                 Finanzas diseñadas <br>
 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-container" style="">para tu crecimiento.</span>
@@ -115,23 +137,26 @@
 <p class="text-xl text-on-surface-variant max-w-2xl font-body leading-relaxed" style="">
                 En MIAFIN, humanizamos el acceso al crédito en Bolivia. Soluciones financieras transparentes y ágiles que se adaptan a tu realidad personal o comunitaria.
             </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<button class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-primary/20 hover:scale-105 active:opacity-80 transition-all" style="">
+<div class="flex flex-nowrap gap-2 pt-2 pb-4 overflow-x-auto">
+<a href="#requisitos" class="bg-primary text-white px-6 py-3 rounded-full font-bold text-base shadow-lg shadow-primary/20 hover:scale-105 active:opacity-80 transition-all whitespace-nowrap inline-flex" style="">
                     Solicitar mi crédito
-                </button>
-<button class="bg-surface-container-highest text-secondary px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container-high transition-all" style="">
-                    Ver beneficios
-                </button>
+                </a>
 </div>
 </div>
-<div class="lg:col-span-5 relative">
-<div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
+<div class="lg:col-span-5 relative hidden lg:block">
+<div class="h-full min-h-[250px] -mr-12 lg:-mr-4 overflow-hidden">
 <img alt="Mujer emprendedora boliviana en un mercado local, representando confianza y crecimiento económico" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGgKaRhI5g-JqzoNVsePkahtBZShWckl9g4BNh8Rfl6AtKcCXCCztwugxooainpVXCxxz8zmSxNo2fAa2aPtdHNCI9Q636hNUYEPHOdNO2W_xx_GR9E8DWLcyjaShWB23bxEFxHDNH8yLpNYsFuusPvty0IqnnDujADn5fKfao4IdLr6wC_866vaM4hhSTEqcoOVzXVtPsCwfzK4FGmblUGtP2y_SFs7SXLxYcclfV93WVl8nUYmuNxD1bMbo5QGLtg4Lm29D8Rmo" style="">
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
+</div>
+</div>
+<div class="lg:hidden relative h-80 overflow-hidden rounded-[1rem] mb-6">
+<img alt="Mujer emprendedora boliviana en un mercado local, representando confianza y crecimiento económico" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGgKaRhI5g-JqzoNVsePkahtBZShWckl9g4BNh8Rfl6AtKcCXCCztwugxooainpVXCxxz8zmSxNo2fAa2aPtdHNCI9Q636hNUYEPHOdNO2W_xx_GR9E8DWLcyjaShWB23bxEFxHDNH8yLpNYsFuusPvty0IqnnDujADn5fKfao4IdLr6wC_866vaM4hhSTEqcoOVzXVtPsCwfzK4FGmblUGtP2y_SFs7SXLxYcclfV93WVl8nUYmuNxD1bMbo5QGLtg4Lm29D8Rmo" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
 </div>
 </div>
 </header>
 <!-- Dynamic Credit Selector Section -->
-<section class="bg-surface-container-low py-24 px-8">
+<section class="bg-surface-container-low py-12 px-4">
 <div class="max-w-7xl mx-auto">
 <div class="text-center mb-16">
 <h2 class="text-3xl font-bold font-headline mb-4" style="">Elige tu camino financiero</h2>
@@ -139,17 +164,17 @@
 </div>
 <!-- Selector Toggle -->
 <div class="max-w-3xl mx-auto mb-16 p-2 bg-surface-container-highest rounded-full flex gap-2">
-<button class="flex-1 py-4 rounded-full font-bold text-lg transition-all active-credit-tab text-primary" style="">
+<button id="tab-comunal" class="flex-1 py-4 rounded-full font-bold text-lg transition-all active-credit-tab text-primary" style="" onclick="switchCreditType('comunal')">
                     Créditos Comunales
                 </button>
-<button class="flex-1 py-4 rounded-full font-bold text-lg transition-all text-on-surface-variant hover:bg-surface-container-high" style="">
+<button id="tab-individual" class="flex-1 py-4 rounded-full font-bold text-lg transition-all text-on-surface-variant hover:bg-surface-container-high" style="" onclick="switchCreditType('individual')">
                     Créditos Individuales
                 </button>
 </div>
-<!-- Content Grid (Bento Style) -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Content Grid (Bento Style) - Comunales -->
+<div id="content-comunal" class="credit-content active grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Main Feature Card -->
-<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-[2rem] shadow-sm flex flex-col justify-between">
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-[1rem] shadow-sm flex flex-col justify-between">
 <div>
 <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold mb-6" style="">MÁS POPULAR</span>
 <h3 class="text-4xl font-extrabold font-headline mb-6 text-on-surface" style="">Impulsa tu comunidad</h3>
@@ -173,7 +198,7 @@
 </div>
 </div>
 <!-- Testimonial Side Card -->
-<div class="bg-secondary text-white p-10 rounded-[2rem] shadow-xl flex flex-col justify-center relative overflow-hidden">
+<div class="bg-secondary text-white p-10 rounded-[1rem] shadow-xl flex flex-col justify-center relative overflow-hidden">
 <div class="relative z-10">
 <span class="material-symbols-outlined text-4xl opacity-50 mb-6" style="">format_quote</span>
 <p class="text-xl italic font-body mb-8" style="">"Gracias al crédito comunal de MIAFIN, pudimos mejorar nuestra producción. El proceso fue transparente y muy humano."</p>
@@ -185,10 +210,49 @@
 <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
 </div>
 </div>
+<!-- Content Grid (Bento Style) - Individuales -->
+<div id="content-individual" class="credit-content grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Main Feature Card -->
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-[1rem] shadow-sm flex flex-col justify-between">
+<div>
+<span class="inline-block px-4 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-bold mb-6" style="">NUEVO</span>
+<h3 class="text-4xl font-extrabold font-headline mb-6 text-on-surface" style="">Crédito Individual</h3>
+<p class="text-lg text-on-surface-variant mb-8 leading-relaxed" style="">
+                            Para necesidades individuales. Accede a montos de 5,000 Bs hasta 10,000 Bs con aprobación rápida y tasas competitivas adaptadas a tu perfil.
+                        </p>
+</div>
+<div class="grid grid-cols-3 gap-4 lg:gap-8">
+<div>
+<div class="text-3xl font-black text-secondary mb-1" style="">28%</div>
+<div class="text-sm font-bold text-on-surface-variant" style="">Tasa anual fija</div>
+</div>
+<div>
+<div class="text-3xl font-black text-secondary mb-1" style="">2%</div>
+<div class="text-sm font-bold text-on-surface-variant" style="">Comisión apertura</div>
+</div>
+<div>
+<div class="text-3xl font-black text-secondary mb-1" style="">10.000 Bs</div>
+<div class="text-sm font-bold text-on-surface-variant" style="">Máximo</div>
+</div>
+</div>
+</div>
+<!-- Testimonial Side Card -->
+<div class="bg-primary text-white p-10 rounded-[1rem] shadow-xl flex flex-col justify-center relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl opacity-50 mb-6" style="">format_quote</span>
+<p class="text-xl italic font-body mb-8" style="">"El crédito individual me ayudó a expandir mi negocio. El proceso fue rápido y sin complicaciones."</p>
+<div>
+<p class="font-bold" style="">Sr. Roberto M.</p>
+<p class="text-sm text-primary-fixed opacity-80" style="">Pequeño Empresario</p>
+</div>
+</div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+</div>
 </div>
 </section>
 <!-- Requirements & Location Section -->
-<section class="py-24 px-8 max-w-7xl mx-auto">
+<section id="requisitos" class="py-16 px-4 max-w-7xl mx-auto">
 <div class="flex flex-col md:flex-row gap-16 items-start">
 <div class="flex-1">
 <h2 class="text-4xl font-extrabold font-headline mb-8" style="">Requisitos simples para <br><span class="text-primary" style="">metas grandes</span></h2>
@@ -201,6 +265,15 @@
 <div>
 <h4 class="font-bold text-lg" style="">Identificación Oficial</h4>
 <p class="text-on-surface-variant" style="">Cédula de Identidad</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" style="">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-lg" style="">Información Crediticia</h4>
+<p class="text-on-surface-variant" style="">Costo de 10 Bs (req. para aprobación)</p>
 </div>
 </div>
 <div class="flex gap-4 items-start">
@@ -224,20 +297,15 @@
 </div>
 </div>
 <div class="flex-1 w-full">
-<div class="bg-surface-container p-2 rounded-[2.5rem]">
-<div class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/20 overflow-hidden">
+<div class="bg-surface-container p-2 rounded-[1rem]">
+<div class="bg-surface-container-lowest p-8 rounded-[1rem] shadow-sm border border-outline-variant/20 overflow-hidden">
 <h3 class="text-2xl font-bold mb-4" style="">Inicia tu solicitud hoy</h3>
 <div class="flex items-center gap-2 mb-6">
 <span class="material-symbols-outlined text-primary" style="">call</span>
-<p class="text-lg font-bold text-primary" style="">WhatsApp: 73737373</p>
+<a href="https://wa.me/59173737373" target="_blank" class="text-lg font-bold text-primary hover:underline" style="">WhatsApp: 73737373</a>
 </div>
-<div class="relative h-64 w-full rounded-2xl overflow-hidden mb-4 border border-outline-variant/30">
-<img alt="Mapa de ubicación de MIAFIN en Cochabamba" class="w-full h-full object-cover" src="https://i.imgur.com/rpSBL7w.png" style="">
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white">
-<span class="material-symbols-outlined text-sm" style="">account_balance</span>
-</div>
-</div>
+<div class="relative h-64 w-full rounded-[1rem] overflow-hidden mb-4 border border-outline-variant/30">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1033.4566200679333!2d-66.15596718374515!3d-17.397522640219663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e3736eacca89c3%3A0x94cb8979412982b8!2sEdificio%20Sanvale%202!5e0!3m2!1sen!2sbo!4v1776179186924!5m2!1sen!2sbo" width="600" height="450" style="border:0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <div class="space-y-1">
 <p class="text-sm font-bold text-on-surface" style="">Oficina Central</p>
@@ -251,7 +319,7 @@
 </section>
 <!-- Schedule Section -->
 <section class="py-12 px-8 max-w-7xl mx-auto border-t border-outline-variant/20">
-<div class="bg-surface-container-low p-10 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="bg-surface-container-low p-10 rounded-[1rem] flex flex-col md:flex-row items-center justify-between gap-8">
 <div class="flex items-center gap-6">
 <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary">
 <span class="material-symbols-outlined text-4xl" style="">schedule</span>
@@ -261,7 +329,7 @@
 <p class="text-on-surface-variant" style="">Estamos para atenderte en persona en nuestras oficinas.</p>
 </div>
 </div>
-<div class="bg-surface-container-lowest px-8 py-6 rounded-2xl border border-outline-variant/20 shadow-sm">
+<div class="bg-surface-container-lowest px-8 py-6 rounded-[1rem] border border-outline-variant/20 shadow-sm">
 <div class="flex flex-col gap-2">
 <div class="flex justify-between items-center gap-12">
 <span class="font-bold text-on-surface" style="">Lunes a Viernes</span>
@@ -276,50 +344,53 @@
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="bg-surface py-24 px-8">
+<section id="nosotros" class="bg-surface py-12 px-4">
 <div class="max-w-4xl mx-auto">
 <h2 class="text-4xl font-extrabold font-headline text-center mb-16" style="">Preguntas frecuentes</h2>
 <div class="space-y-4">
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
-<div class="flex justify-between items-center cursor-pointer">
+<div class="faq-item bg-surface-container-lowest p-6 rounded-[1rem] shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
 <h4 class="font-bold text-lg" style="">¿Cuánto tiempo tarda la aprobación?</h4>
-<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+<span class="material-symbols-outlined text-primary transition-transform" style="">expand_more</span>
 </div>
+<div class="faq-answer text-on-surface-variant">El proceso de aprobación puede tomar entre 24 y 48 horas hábiles una vez presentada toda la documentación requerida.</div>
 </div>
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
-<div class="flex justify-between items-center cursor-pointer">
+<div class="faq-item bg-surface-container-lowest p-6 rounded-[1rem] shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
 <h4 class="font-bold text-lg" style="">¿Cuáles son las tasas de interés?</h4>
-<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+<span class="material-symbols-outlined text-primary transition-transform" style="">expand_more</span>
 </div>
+<div class="faq-answer text-on-surface-variant">Para créditos comunales la tasa es del 35% anual fija. Para individuales, la tasa es del 28% anual.</div>
 </div>
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
-<div class="flex justify-between items-center cursor-pointer">
+<div class="faq-item bg-surface-container-lowest p-6 rounded-[1rem] shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
 <h4 class="font-bold text-lg" style="">¿Cuál es el monto mínimo y máximo?</h4>
-<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+<span class="material-symbols-outlined text-primary transition-transform" style="">expand_more</span>
 </div>
+<div class="faq-answer text-on-surface-variant">El monto mínimo es de 5,000 Bs y el máximo de 10,000 Bs para ambos tipos de crédito.</div>
 </div>
-<!-- New Question 1 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
-<div class="flex justify-between items-center cursor-pointer">
+<div class="faq-item bg-surface-container-lowest p-6 rounded-[1rem] shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
 <h4 class="font-bold text-lg" style="">¿Qué es un crédito comunal?</h4>
-<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+<span class="material-symbols-outlined text-primary transition-transform" style="">expand_more</span>
 </div>
+<div class="faq-answer text-on-surface-variant">Es un crédito diseñado para grupos comunitarios o asociaciones que buscan crecer juntos con el respaldo colectivo.</div>
 </div>
-<!-- New Question 2 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
-<div class="flex justify-between items-center cursor-pointer">
+<div class="faq-item bg-surface-container-lowest p-6 rounded-[1rem] shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
 <h4 class="font-bold text-lg" style="">¿Puedo renovar mi crédito después de pagarlo?</h4>
-<span class="material-symbols-outlined text-primary" style="">expand_more</span>
+<span class="material-symbols-outlined text-primary transition-transform" style="">expand_more</span>
 </div>
+<div class="faq-answer text-on-surface-variant">Sí, una vez que hayas pagado tu crédito puedes solicitar uno nuevo con condiciones preferentes.</div>
 </div>
 </div>
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-neutral-100 dark:bg-neutral-950 w-full py-12 px-8 border-t border-neutral-200">
+<footer class="bg-neutral-100 dark:bg-neutral-950 w-full py-8 px-4 border-t border-neutral-200">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
 <div class="col-span-1 md:col-span-1">
-<span class="font-headline font-bold text-emerald-900 text-2xl mb-4 block" style="">MIAFIN</span>
+<img src="https://i.imgur.com/xI33Ubz.png" alt="MIAFIN" class="h-10 mb-4">
 <p class="text-neutral-500 text-sm leading-relaxed mb-6 font-body" style="">
                     Impulsando sueños bolivianos, construyendo realidades financieras para todos con una tasa del 35%.
                 </p>
@@ -358,9 +429,53 @@
 </div>
 </footer>
 <!-- WhatsApp Floating CTA -->
-<a class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60]" href="#" style="">
+<a class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60]" href="https://wa.me/59173737373" target="_blank" style="">
 <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.548 0 10.058-4.51 10.061-10.062.002-2.69-1.047-5.216-2.955-7.127s-4.439-2.956-7.127-2.957c-5.549 0-10.06 4.511-10.063 10.063-.001 2.032.547 3.513 1.55 5.146l-1.02 3.723 3.835-1.005zm10.948-7.532c-.301-.151-1.781-.878-2.057-.978-.275-.1-.476-.151-.675.151-.199.301-.771.978-.945 1.177-.175.199-.349.226-.65.075-.301-.151-1.272-.469-2.423-1.496-.895-.798-1.5-1.783-1.675-2.084-.175-.301-.019-.463.132-.613.135-.134.301-.351.451-.526.15-.175.201-.301.301-.501.1-.199.05-.376-.025-.526-.075-.151-.675-1.628-.925-2.229-.244-.588-.491-.508-.675-.517-.175-.008-.376-.01-.576-.01-.2 0-.526.075-.802.376-.275.301-1.053 1.028-1.053 2.507s1.077 2.908 1.228 3.109c.15.201 2.12 3.237 5.135 4.537.718.309 1.278.494 1.714.633.721.23 1.377.198 1.896.121.578-.085 1.781-.727 2.031-1.429.25-.702.25-1.303.175-1.429-.075-.126-.275-.201-.576-.352z"></path>
 </svg>
 </a>
+<script>
+function switchCreditType(type) {
+    var tabComunal = document.getElementById('tab-comunal');
+    var tabIndividual = document.getElementById('tab-individual');
+    var contentComunal = document.getElementById('content-comunal');
+    var contentIndividual = document.getElementById('content-individual');
+    
+    if (type === 'comunal') {
+        tabComunal.classList.add('active-credit-tab');
+        tabComunal.classList.remove('text-on-surface-variant');
+        tabComunal.classList.add('text-primary');
+        
+        tabIndividual.classList.remove('active-credit-tab');
+        tabIndividual.classList.add('text-on-surface-variant');
+        tabIndividual.classList.remove('text-primary');
+        
+        contentComunal.classList.add('active');
+        contentIndividual.classList.remove('active');
+    } else {
+        tabIndividual.classList.add('active-credit-tab');
+        tabIndividual.classList.remove('text-on-surface-variant');
+        tabIndividual.classList.add('text-primary');
+        
+        tabComunal.classList.remove('active-credit-tab');
+        tabComunal.classList.add('text-on-surface-variant');
+        tabComunal.classList.remove('text-primary');
+        
+        contentIndividual.classList.add('active');
+        contentComunal.classList.remove('active');
+    }
+}
+function toggleFaq(element) {
+    var faqItem = element.parentElement;
+    var isOpen = faqItem.classList.contains('open');
+    
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+        item.classList.remove('open');
+    });
+    
+    if (!isOpen) {
+        faqItem.classList.add('open');
+    }
+}
+</script>
 </body></html>

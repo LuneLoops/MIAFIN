@@ -1,0 +1,230 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MIAFIN - Simulador de Cuotas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+"on-tertiary-container": "#eefff3",
+"inverse-surface": "#303030",
+"secondary-container": "#76adfd",
+tertiary: "#486054",
+"on-secondary-container": "#00407a",
+"on-surface": "#1b1c1c",
+"on-error": "#ffffff",
+"on-tertiary-fixed": "#082016",
+primary: "#006933",
+"surface-variant": "#e4e2e1",
+"surface-container-highest": "#e4e2e1",
+"surface-container-lowest": "#ffffff",
+background: "#fbf9f8",
+secondary: "#1a5fa9",
+error: "#ba1a1a",
+"tertiary-fixed": "#cee9d9",
+"tertiary-container": "#60796c",
+"primary-container": "#008542",
+"surface-tint": "#006d35",
+"on-secondary-fixed": "#001c3b",
+"on-primary": "#ffffff",
+"primary-fixed-dim": "#71dc8e",
+"on-background": "#1b1c1c",
+surface: "#fbf9f8",
+"outline-variant": "#bdcabc",
+"error-container": "#ffdad6",
+"on-primary-fixed": "#00210c",
+"tertiary-fixed-dim": "#b2cdbd",
+"on-tertiary-fixed-variant": "#344c40",
+"surface-bright": "#fbf9f8",
+"secondary-fixed-dim": "#a6c8ff",
+"inverse-on-surface": "#f3f0f0",
+"on-secondary": "#ffffff",
+"surface-container-low": "#f6f3f2",
+"inverse-primary": "#71dc8e",
+"on-secondary-fixed-variant": "#004787",
+"secondary-fixed": "#d5e3ff",
+"surface-dim": "#dcd9d9",
+"on-tertiary": "#ffffff",
+"on-surface-variant": "#3e4a3f",
+"on-error-container": "#93000a",
+"primary-fixed": "#8df9a8",
+"on-primary-fixed-variant": "#005226",
+"surface-container-high": "#eae7e7",
+"on-primary-container": "#eeffec",
+outline: "#6e7a6e",
+"surface-container": "#f0eded"
+},
+borderRadius: {
+DEFAULT: "0.125rem",
+lg: "0.25rem",
+xl: "0.5rem",
+full: "0.75rem"
+},
+fontFamily: {
+headline: ["Manrope"],
+body: ["Inter"],
+label: ["Inter"],
+display: "Manrope"
+}
+}
+}
+};
+</script>
+<style>
+.material-symbols-outlined {
+font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none h-20">
+<div class="flex justify-between items-center px-8 h-full max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-2">
+<a href="./">
+<img src="https://i.imgur.com/xI33Ubz.png" alt="MIAFIN" class="h-12">
+</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="./">Inicio</a>
+<a class="text-emerald-700 dark:text-emerald-400 font-bold border-b-2 border-emerald-600 font-headline text-lg" href="./simulador.html">Simulador de cuotas</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors font-headline text-lg" href="./nosotros.html">Nosotros</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-emerald-700 font-bold px-4 py-2"><br></button>
+</div>
+</div>
+</nav>
+
+<section class="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+<div class="text-center mb-12">
+<h1 class="text-4xl md:text-6xl font-headline font-bold tracking-tight mb-4">Simulador de<span class="text-primary"> cuotas</span></h1>
+<p class="text-xl text-on-surface-variant">Calcula tu cuota mensual con nuestra tasa del <span class="text-primary font-bold">35% anual</span></p>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8">
+<div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 shadow-lg">
+<div class="mb-10">
+<div class="flex justify-between items-center mb-4">
+<span class="font-headline font-bold text-lg">Monto</span>
+<span class="text-2xl font-headline font-bold text-primary" id="monto-display">5,000 Bs</span>
+</div>
+<input type="range" id="sim-monto" min="5000" max="15000" step="500" value="5000" class="w-full h-3 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary" oninput="calcularCuota()">
+<div class="flex justify-between text-sm text-on-surface-variant mt-2">
+<span>5,000 Bs</span>
+<span>15,000 Bs</span>
+</div>
+</div>
+
+<div class="mb-4">
+<div class="flex justify-between items-center mb-4">
+<span class="font-headline font-bold text-lg">Plazo</span>
+<span class="text-2xl font-headline font-bold text-secondary" id="plazo-display">12 meses</span>
+</div>
+<input type="range" id="sim-plazo" min="3" max="18" step="3" value="12" class="w-full h-3 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-secondary" oninput="calcularCuota()">
+<div class="flex justify-between text-sm text-on-surface-variant mt-2">
+<span>3 meses</span>
+<span>18 meses</span>
+</div>
+</div>
+</div>
+
+<div class="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-8 text-white shadow-xl">
+<div class="text-center mb-6">
+<span class="material-symbols-outlined text-5xl mb-3">calculate</span>
+<p class="text-xl font-headline font-bold">Cuota mensual</p>
+</div>
+<p class="text-5xl md:text-6xl font-headline font-bold text-center mb-4" id="sim-cuota">Bs 0</p>
+<div class="bg-white/20 rounded-xl p-4 mb-6">
+<p class="text-sm text-center opacity-80">Tasa anual del 35%</p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/20">
+<div class="text-center">
+<p class="text-2xl font-headline font-bold" id="sim-total">Bs 0</p>
+<p class="text-sm opacity-70">Total a pagar</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-headline font-bold" id="sim-interes">Bs 0</p>
+<p class="text-sm opacity-70">Interés total</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="mt-12 bg-surface-container rounded-2xl p-8 border border-outline-variant/20 text-center">
+<p class="text-on-surface-variant mb-4">¿Listo para solicitar tu crédito?</p>
+<a href="https://wa.me/59173737373" target="_blank" class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-xl">
+<span class="material-symbols-outlined">chat</span>
+Escríbenos por WhatsApp
+</a>
+</div>
+</section>
+
+<footer class="bg-neutral-100 w-full py-8 px-4 border-t border-neutral-200">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<img src="https://i.imgur.com/xI33Ubz.png" alt="MIAFIN" class="h-10 mb-4">
+<p class="text-neutral-500 text-sm leading-relaxed mb-6 font-body">Impulsando sueños bolivianos, construyendo realidades financieras para todos con una tasa del 35%.</p>
+</div>
+<div>
+<h5 class="font-bold text-emerald-800 mb-4">Empresa</h5>
+<ul class="space-y-2">
+<li><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#">Sobre nosotros</a></li>
+<li><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#">Contacto</a></li>
+<li><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#">Soporte</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-emerald-800 mb-4">Legal</h5>
+<ul class="space-y-2">
+<li><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#">Términos</a></li>
+<li><a class="text-neutral-500 hover:text-emerald-600 hover:translate-x-1 transition-transform inline-block font-body text-sm" href="#">Privacidad</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-emerald-800 mb-4">Síguenos</h5>
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-neutral-200 rounded-full flex items-center justify-center cursor-pointer hover:bg-emerald-100 transition-colors">
+<span class="material-symbols-outlined text-emerald-800">share</span>
+</div>
+<div class="w-10 h-10 bg-neutral-200 rounded-full flex items-center justify-center cursor-pointer hover:bg-emerald-100 transition-colors">
+<span class="material-symbols-outlined text-emerald-800">public</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-12 border-t border-neutral-200 mt-8 text-center md:text-left">
+<p class="text-neutral-500 font-body text-sm">© 2025 MIAFIN Bolivia. Todos los derechos reservados. Horarios: Lun-Vie 9AM-5PM.</p>
+</div>
+</footer>
+
+<a class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60]" href="https://wa.me/59173737373" target="_blank">
+<svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.548 0 10.058-4.51 10.061-10.062.002-2.69-1.047-5.216-2.955-7.127s-4.439-2.956-7.127-2.957c-5.549 0-10.06 4.511-10.063 10.063-.001 2.032.547 3.513 1.55 5.146l-1.02 3.723 3.835-1.005zm10.948-7.532c-.301-.151-1.781-.878-2.057-.978-.275-.1-.476-.151-.675.151-.199.301-.771.978-.945 1.177-.175.199-.349.226-.65.075-.301-.151-1.272-.469-2.423-1.496-.895-.798-1.5-1.783-1.675-2.084-.175-.301-.019-.463.132-.613.135-.134.301-.351.451-.526.15-.175.201-.301.301-.501.1-.199.05-.376-.025-.526-.075-.151-.675-1.628-.925-2.229-.244-.588-.491-.508-.675-.517-.175-.008-.376-.01-.576-.01-.2 0-.526.075-.802.376-.275.301-1.053 1.028-1.053 2.507s1.077 2.908 1.228 3.109c.15.201 2.12 3.237 5.135 4.537.718.309 1.278.494 1.714.633.721.23 1.377.198 1.896.121.578-.085 1.781-.727 2.031-1.429.25-.702.25-1.303.175-1.429-.075-.126-.275-.201-.576-.352z"></path>
+</svg>
+</a>
+
+<script>
+function calcularCuota() {
+var monto = parseInt(document.getElementById('sim-monto').value);
+var plazo = parseInt(document.getElementById('sim-plazo').value);
+
+document.getElementById('monto-display').textContent = monto.toLocaleString() + ' Bs';
+document.getElementById('plazo-display').textContent = plazo + ' meses';
+
+var tasaMensual = 0.35 / 12;
+var cuota = monto * tasaMensual / (1 - Math.pow(1 + tasaMensual, -plazo));
+var total = cuota * plazo;
+var interes = total - monto;
+
+document.getElementById('sim-cuota').textContent = 'Bs ' + Math.round(cuota).toLocaleString();
+document.getElementById('sim-total').textContent = 'Bs ' + Math.round(total).toLocaleString();
+document.getElementById('sim-interes').textContent = 'Bs ' + Math.round(interes).toLocaleString();
+}
+calcularCuota();
+</script>
+</body></html>
